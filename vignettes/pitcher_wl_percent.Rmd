@@ -28,15 +28,16 @@ First, we load the necessary packages: **Lahman** (containing the baseball data)
 ```{r Setup, message=FALSE}
 
 # package load 
-library(Lahman)
-library(dplyr)
+library(Lahman) # Sean 'Lahman' Baseball Database 
+library(dplyr) # A Grammar of Data Manipulation 
 
 # tables
-library(gt)
-library(knitr)
-library(kableExtra)
+library(gt) # Easily Create Presentation-Ready Display Tables 
+library(knitr) # A General-Purpose Package for Dynamic Report Generation in R 
+library(kableExtra) # Construct Complex Table with 'kable' and Pipe Syntax 
 
 # note: packages annotated with {annotater}
+# https://github.com/luisDVA/annotater
 ```
 
 #### Read and summarize the data
@@ -102,8 +103,17 @@ df_pitcher_WL %>%
 
 df_pitcher_WL_50 <-
 df_pitcher_WL_2 %>% 
-  select(nameLast, nameFirst, lgID, careerW, careerL, career_decisions, careerWLpct)
+  ungroup() %>% # need to `ungroup()` 
+  select(nameLast, nameFirst, lgID, careerW, careerL, career_decisions, careerWLpct)  
 
 #write_csv(df_pitcher_WL_50, "df_pitcher_WL_50.csv")
 
 ```
+
+
+## **gt**
+
+https://evamaerey.github.io/data_manipulation/gt
+
+
+
